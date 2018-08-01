@@ -24,5 +24,5 @@ app.post( '/api/add', cart_controller.add );
 app.post( '/api/checkout', cart_controller.checkout );
 app.delete( 'api/remove', cart_controller.remove );
 
-const port =  process.env || 3000;
+const port =  process.env.PORT || 4000;
 app.listen( port, () => { console.log(`Listening on port ${port}.`); } )

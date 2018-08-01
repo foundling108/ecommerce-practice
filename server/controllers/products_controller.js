@@ -5,7 +5,7 @@ module.exports = {
         db.products.get_products()
         .then( products => res.status( 200 ).send( products ) )
         .catch( err => {
-            res.status( 500 ).send( err )
+            res.status( 500 ).send({ errorMessage: "Cannot get products" })
             console.log(err)
         } )
     }
