@@ -17,7 +17,7 @@ massive(process.env.CONNECTION_STRING)
 }).catch( err => console.log("Massive", err) );
 
 // Products
-app.get( '/api/product', products_controller.read );
+app.get( '/api/product', products_controller.getProducts );
 
 // Cart
 app.post( '/api/add', cart_controller.add );

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import './Cart.css';
 
@@ -7,7 +8,6 @@ class Cart extends Component {
         super();
 
         this.state = {
-            product: [],
             productName: '',
             price: 0,
             productImg: '',
@@ -17,14 +17,16 @@ class Cart extends Component {
 
     render() {
         return(
-            <section>
+            <section className="cart-body">
                 <div>
                     Cart
-
                     <button>Remove</button>
                 </div>
                 <div>
                     <button>Checkout</button>
+                </div>
+                <div>
+                <Link to='/'><button className="exit-button">Exit</button></Link>
                 </div>
             </section>
         )

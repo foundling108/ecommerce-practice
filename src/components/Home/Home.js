@@ -12,8 +12,8 @@ function Home()
             <h1>ecommerce practice</h1>
 
             
-            <Link to='/products'><button>View Products</button></Link>
-            <Link to='/cart'><button>Cart</button></Link>
+            <Link to='/products'><button className="landing-buttons">View Products</button></Link>
+            <Link to='/cart'><button className="landing-buttons">Cart</button></Link>
         </div>
     );
 }

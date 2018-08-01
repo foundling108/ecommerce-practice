@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-// import axios from 'axios';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Products.css';
 
 class Products extends Component {
@@ -7,18 +8,26 @@ class Products extends Component {
         super();
 
         this.state = {
-            products: [],
-            productName: '',
-            price: 0,
-            productImg: ''
+            products: []
         }
+    }
+
+    componentDidMount() {
+        axios.get('/api/product').then(res => {
+            this.setState({ products: res.data })
+        })
     }
 
     render() {
         return(
-            <div>
+            <section>
+            <div className="products-body">
                 Products
             </div>
+            <div>
+                <Link to='/'><button className="exit-button">Exit</button></Link>
+            </div>
+            </section>
         )
     }
 

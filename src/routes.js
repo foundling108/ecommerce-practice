@@ -7,7 +7,7 @@ import Cart from './components/Cart/Cart';
 
 export default (
     <Switch>
-        <Route component={ Home } path="/"/>
+        <Route component={ Home } path="/" exact/>
         <Route component={ Products } path="/products"/>
         <Route component={ Cart } path="/cart"/>
     </Switch>

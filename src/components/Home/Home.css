@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: url('../../images/fancycrave-254175-unsplash.jpg');
+    background: url('../../images/rawpixel-574847-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -25,7 +25,7 @@ h1 {
     border-radius: 3px;
 }
 
-button {
+.landing-buttons {
     font-size: 1vw;
     color: aliceblue;
     background: black;
