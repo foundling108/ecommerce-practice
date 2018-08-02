@@ -24,29 +24,36 @@ class Products extends Component {
         // getProducts();
     }
 
+    addToCart() {
+
+    }
+
     render() {
         let productDisplay = this.state.products.map( ( el, i ) => (
-            <div
-            key={i}
-            >
-            <img src={ el.product_image } alt="robot"/>
-            <p>
-                { el.product_name }
-            </p>
-            <p>
-                { el.price }
-            </p>
+            <div className="product-boxes"
+                    key={i}>
+                <img src={ el.product_image } alt="robot"/>
+                <p>
+                    { el.product_name }
+                </p>
+                <p>
+                    { el.price }
+                </p>
+                <button className="add-button" >Add to cart</button>
             </div>
         ) )
 
         return(
             <section>
-            <div className="products-body">
-                { productDisplay }
-            </div>
-            <div>
-                <Link to='/'><button className="exit-button">Exit</button></Link>
-            </div>
+                <div className="products-body">
+                    { productDisplay }
+                </div>
+                <div>
+                    <Link to='/cart'><button className='view-cart'>View cart</button></Link>
+                </div>
+                <div>
+                    <Link to='/'><button className="exit-button">Exit</button></Link>
+                </div>
             </section>
         )
     }

@@ -1,0 +1,21 @@
+.checkout {
+    position: fixed;
+    bottom: 20px;
+    right: 43vw;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background: black;
+    font-size: 3vw;
+}
+
+.back-to-products {
+    position: fixed;
+    bottom: 20px;
+    right: 6vw;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background: black;
+    font-size: 2vw;
+}

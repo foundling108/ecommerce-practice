@@ -13,6 +13,7 @@ app.use( bodyParser.json() );
 
 massive(process.env.CONNECTION_STRING)
 .then( dbInstance => {
+    console.log("db connected")
     app.set('db', dbInstance)
 }).catch( err => console.log("Massive", err) );
 

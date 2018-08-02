@@ -8,10 +8,7 @@ class Cart extends Component {
         super();
 
         this.state = {
-            productName: '',
-            price: 0,
-            productImg: '',
-            quantity: 0
+            product: []
         }
     }
 
@@ -23,9 +20,10 @@ class Cart extends Component {
                     <button>Remove</button>
                 </div>
                 <div>
-                    <button>Checkout</button>
+                    <button className="checkout">Checkout</button>
                 </div>
                 <div>
+                <Link to='/products'><button className="back-to-products">View products</button></Link>
                 <Link to='/'><button className="exit-button">Exit</button></Link>
                 </div>
             </section>

@@ -1,5 +1,5 @@
 .exit-button {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     border: none;
@@ -7,4 +7,35 @@
     color: aliceblue;
     background: black;
     font-size: 2vw;
+}
+
+p {
+    color: aliceblue;
+}
+
+.product-boxes {
+    height: 100px;
+    width: 100px;
+    display: inline-grid;
+    margin: 50px;
+    background: black;
+    border-radius: 5px;
+}
+
+.view-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 45%;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background: black;
+    font-size: 3vw;
+}
+
+.add-button {
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background: black;
 }
