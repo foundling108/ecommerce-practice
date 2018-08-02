@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 import './Products.css';
+
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getProducts } from '../../dux/reducer';
+
+// import axios from 'axios';
 
 class Products extends Component {
     constructor() {
@@ -13,9 +17,8 @@ class Products extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/product').then(res => {
-            this.setState({ products: res.data })
-        })
+        const { getProducts } = this.props;
+        getProducts();
     }
 
     render() {
@@ -33,4 +36,10 @@ class Products extends Component {
 
 }
 
-export default Products;
+function mapStateToProps(state) {
+    return {
+        state
+    };
+}
+
+export default connect( mapStateToProps, { getProducts })(Products);
