@@ -3,7 +3,7 @@ import './Products.css';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getProducts } from '../../dux/reducer';
+import {  addToCart } from '../../dux/reducer';
 
 import axios from 'axios';
 
@@ -14,18 +14,21 @@ class Products extends Component {
         this.state = {
             products: []
         }
+
+        this.handleCart = this.handleCart.bind(this);
     }
 
     componentDidMount() {
         axios.get('/api/get-products').then( res => {
             this.setState({ products: res.data })
         } )
-        // const { getProducts } = this.props;
-        // getProducts();
+
     }
 
-    addToCart() {
-
+    handleCart = () => {
+        axios.post( `/api/add` ).then( res => {
+            this.props.addToCart( res.data )
+        } )
     }
 
     render() {
@@ -39,7 +42,7 @@ class Products extends Component {
                 <p>
                     { el.price }
                 </p>
-                <button className="add-button" >Add to cart</button>
+                <button className="add-button" onClick={ this.handleCart } >Add to cart</button>
             </div>
         ) )
 
@@ -62,8 +65,8 @@ class Products extends Component {
 
 function mapStateToProps(state) {
     return {
-        state
+        cart: state
     };
 }
 
-export default connect( mapStateToProps, { getProducts })(Products);
+export default connect( mapStateToProps, {  addToCart })(Products);

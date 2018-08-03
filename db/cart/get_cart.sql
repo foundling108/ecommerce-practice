@@ -1,4 +1,5 @@
 SELECT *
 FROM cart
 inner JOIN products 
-ON cart.product_id = products.id
+ON cart.productid = products.id
+WHERE cartid = $1;

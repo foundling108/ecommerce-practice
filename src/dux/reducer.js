@@ -9,25 +9,24 @@ const initialState = {
 const GET_PRODUCTS = "GET_PRODUCTS";
 const ADD_TO_CART = "ADD_TO_CART";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
-const CHECKOUT = "CHECKOUT"
+const CHECKOUT = "CHECKOUT";
 
 export default function ( state=initialState, action ) {
-    let { payload } = action;
     switch( action.type ) {
         case GET_PRODUCTS + '_FULFILLED':
-            return Object.assign( {}, state, { products: payload } );
+            return Object.assign( {}, state, { products: action.payload } );
 
         case GET_PRODUCTS + '_FAILED':
             return Object.assign( {}, state, { products: [] } );
             
-        case ADD_TO_CART + '_FULFILLED':
-            return Object.assign( {}, state, { cart: payload.cart, total: payload.total } );
+        case ADD_TO_CART:
+            return Object.assign( {}, state, { cart: action.payload } );
 
-        case REMOVE_FROM_CART + '_FULFILLED':
-            return Object.assign( {}, state, { cart: payload.cart, total: payload.total } );
+        case REMOVE_FROM_CART:
+            return Object.assign( {}, state, { cart: action.payload } );
 
-        case CHECKOUT + '_FULFILLED':
-            return Object.assign( {}, state, { cart: payload.cart, total: payload.total } );
+        case CHECKOUT:
+            return Object.assign( {}, state, { cart: action.payload } );
 
         default: 
             return state;
@@ -41,23 +40,23 @@ export function getProducts() {
     }
 }
 
-export function addToCart( id ) {
+export function addToCart( products ) {
     return {
         type: ADD_TO_CART,
-        payload: axios.post( `/api/add/?id=${id}` ).then( response => response.data )
+        payload: products
     }
 }
 
-export function removeFromCart( id ) {
+export function removeFromCart( products ) {
     return {
         type: REMOVE_FROM_CART,
-        payload: axios.delete( `/api/remove/?id=${id}` ).then( response => response.data )
+        payload: products
     }
 }
 
-export function checkout() {
+export function checkout( cart ) {
     return {
         type: CHECKOUT,
-        payload: axios.post( '/api/checkout' ).then( response => response.data )
+        payload: cart
     }
 }
